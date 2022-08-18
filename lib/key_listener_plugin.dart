@@ -6,7 +6,7 @@ class KeyListenerPlugin {
   static const MethodChannel _channel =
       const MethodChannel('key_listener_plugin');
 
-  static Stream<int> _keyStream;
+  static Stream<int>? _keyStream;
 
   static Future<bool> checkAvailabilityPermission() async {
     print('STARTING HERE');
@@ -15,7 +15,7 @@ class KeyListenerPlugin {
     return hasPermission;
   }
 
-  static Stream<int> get keyStream {
+  static Stream<int>? get keyStream {
     EventChannel _eventChannel = const EventChannel('keyStream');
     if (_keyStream == null) {
       _keyStream =
